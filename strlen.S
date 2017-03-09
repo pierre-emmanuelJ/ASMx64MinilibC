@@ -8,15 +8,15 @@ my_strlen:
         PUSH RBP                    ; Prologue:
         MOV RBP, RSP                ; Stack frame setup
 
-        XOR RCX, RCX
+        XOR RCX, RCX                ; Initialize counter to 0
 loop:
-        cmp byte[RDI], 0
-        jz  end
-        inc RDI
-        inc RCX
-        jmp loop
+        cmp byte[RDI], 0            ; Compare byte of str to 0
+        jz  end                     ; Flag if prev condition is verify then goto end
+        inc RDI                     ; Increment str
+        inc RCX                     ; Increment Counter
+        jmp loop                    ; Loop jump to loop
 
 end:
-        mov RAX, RCX
+        mov RAX, RCX                ; Put counter to return value
         LEAVE                       ; Epilogue
         RET                         ; Return
