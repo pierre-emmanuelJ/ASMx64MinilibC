@@ -5,7 +5,7 @@
 ## Login   <jacqui_p@epitech.eu>
 ##
 ## Started on  Thu Mar  9 15:40:43 2017 Pierre-Emmanuel Jacquier
-## Last update Thu Mar  9 15:47:55 2017 Pierre-Emmanuel Jacquier
+## Last update Thu Mar  9 15:54:15 2017 Pierre-Emmanuel Jacquier
 ##
 
 RM		= rm -f
@@ -28,7 +28,6 @@ all:		$(NAME)
 
 $(NAME):	$(OBJS)
 		$(LD) $(LFLAGS) -o $(NAME) $(OBJS) $(CFLAGS)
-		gcc $(OBJS) test.c
 
 %.o:		%.S
 		@$(NASM) -o $@ $<
@@ -43,7 +42,7 @@ re: fclean all
 
 test:	$(OBJS)
 	@$(LD) $(LFLAGS) -o $(NAME) $(OBJS) $(CFLAGS)
-	@gcc main.c src/*.o -g
+	@gcc test.c *.o -g
 	@./a.out
 	make fclean && rm a.out
 
