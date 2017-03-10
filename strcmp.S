@@ -8,28 +8,26 @@ my_strcmp:
         PUSH RBP                    ; Prologue:
         MOV RBP, RSP                ; Stack frame setup
 
-        XOR RAX, RAX
-        XOR RCX, RCX
+        XOR RAX, RAX                ;
+        XOR RCX, RCX                ;
 
 loop:
-        mov AL, byte[RDI]
-        mov CL, byte[RSI]
+        mov AL, byte[RDI]           ; Move s1 byte in 8 bit subregister of RAX
+        mov CL, byte[RSI]           ; Move s2 byte in 8 bit subregister of RCX
 
-        cmp AL, 0x0            ; Compare byte of str to 0
-        jz  end                     ; Flag if prev condition is verify then goto end
-        cmp CL, 0x0           ; Compare byte of str to 0
-        jz  end                     ; Flag if prev condition is verify then goto end
+        cmp AL, 0x0                 ; Compare byte of s1 to 0
+        jz  end                     ; Flag 'jump is 0' if prev condition is verify then goto end
+        cmp CL, 0x0                 ; Compare byte of s2 to 0
+        jz  end                     ; Flag 'jump is 0' if prev condition is verify then goto end
 
-        cmp AL, CL
-        jnz end
+        cmp AL, CL                  ; Compare s1 and s2 byte
+        jnz end                     ; Flag 'jump is not 0' if prev condition is not verify then goto end
 
-        inc RDI
-        inc RSI                     ; Increment Counter
+        inc RDI                     ; Increment s1
+        inc RSI                     ; Increment s2
         jmp loop                    ; Loop jump to loop
 
 end:
-        sub RAX, RCX
-        ; mov RAX, 0x0
-        ; mov RAX, AL               ; Put counter to return value
+        sub RAX, RCX                ; Substract for result
         LEAVE                       ; Epilogue
         RET                         ; Return
