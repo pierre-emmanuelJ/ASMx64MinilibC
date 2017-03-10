@@ -5,7 +5,7 @@
 ** Login   <jacqui_p@epitech.eu>
 **
 ** Started on  Thu Mar  9 15:50:17 2017 Pierre-Emmanuel Jacquier
-** Last update Fri Mar 10 01:44:55 2017 Pierre-Emmanuel Jacquier
+** Last update Fri Mar 10 12:30:59 2017 Pierre-Emmanuel Jacquier
 */
 #include <stdio.h>
 #include <assert.h>
@@ -16,15 +16,24 @@ int my_strcmp(const char *s1, const char *s2);
 
 int main()
 {
-  printf("***** TEST begin *****\n");
-  assert(my_strlen("hello") == 5);
-  printf("%d\n", my_strcmp("hello", "test"));
-  assert(my_strcmp("hello", "test") == strcmp("hello", "test"));
-  // printf("%d\n", my_strcmp("aaaaaaaaaaaaaaaa", "aaaadddddd"));
-  // assert(my_strcmp("aaaaaaaaaaaaaaaa", "aaaadddddd") == strcmp("aaaaaaaaaaaaaaaa", "aaaadddddd"));
+  int ret;
 
-  // printf("%d\n", strcmp("hello", "test"));
-  // printf("%s\n", my_strcmp("hello", "test"));
+  printf("***** TEST begin *****\n");
+  assert(my_strlen("") == strlen(""));
+  assert(my_strlen("hello") == strlen("hello"));
+  assert(my_strlen("h") == strlen("h"));
+  assert(my_strlen("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa") == strlen("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"));
+
+  ret = my_strcmp("aaaaaaaaaaaaaaaa", "aaaadddddd");
+  assert(ret > 0 ? 1 : ret < 0 ? -1 : 0 == strcmp("aaaaaaaaaaaaaaaa", "aaaadddddd"));
+  ret = my_strcmp("", "");
+  assert(ret > 0 ? 1 : ret < 0 ? -1 : 0 == strcmp("", ""));
+  ret = my_strcmp("aaa", "aa");
+  assert(ret > 0 ? 1 : ret < 0 ? -1 : 0 == strcmp("aaa", "aa"));
+  ret = my_strcmp("ac", "dc");
+  assert(ret > 0 ? 1 : ret < 0 ? -1 : 0 == strcmp("ac", "dc"));
+
+
   printf("***** TEST end *****\n");
   return 0;
 }
