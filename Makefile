@@ -5,7 +5,7 @@
 ## Login   <jacqui_p@epitech.eu>
 ##
 ## Started on  Thu Mar  9 15:40:43 2017 Pierre-Emmanuel Jacquier
-## Last update Thu Mar  9 16:07:56 2017 Pierre-Emmanuel Jacquier
+## Last update Thu Mar  9 18:54:58 2017 Pierre-Emmanuel Jacquier
 ##
 
 RM		= rm -f
@@ -14,7 +14,8 @@ NASM		= nasm -f elf64
 
 LD		= gcc
 
-SRCS		= strlen.S
+SRCS		= strlen.S \
+          strcmp.S
 
 OBJS		= $(SRCS:.S=.o)
 

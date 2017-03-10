@@ -17,6 +17,6 @@ loop:
         jmp loop                    ; Loop jump to loop
 
 end:
-        mov RAX, RCX                ; Put counter to return value
+        MOV RAX, RCX                ; Put counter to return value
         LEAVE                       ; Epilogue
         RET                         ; Return
