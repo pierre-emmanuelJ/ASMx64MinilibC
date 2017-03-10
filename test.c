@@ -5,7 +5,7 @@
 ** Login   <jacqui_p@epitech.eu>
 **
 ** Started on  Thu Mar  9 15:50:17 2017 Pierre-Emmanuel Jacquier
-** Last update Fri Mar 10 12:30:59 2017 Pierre-Emmanuel Jacquier
+** Last update Fri Mar 10 17:08:33 2017 Pierre-Emmanuel Jacquier
 */
 #include <stdio.h>
 #include <assert.h>
@@ -13,6 +13,7 @@
 
 size_t my_strlen(const char *s);
 int my_strcmp(const char *s1, const char *s2);
+char *my_rindex(const char *s, int c);
 
 int main()
 {
@@ -33,6 +34,10 @@ int main()
   ret = my_strcmp("ac", "dc");
   assert(ret > 0 ? 1 : ret < 0 ? -1 : 0 == strcmp("ac", "dc"));
 
+  char *momo = rindex("test", 's');
+  printf("%s\n", momo);
+  momo = my_rindex("test", 's');
+  printf("%s\n", momo);
 
   printf("***** TEST end *****\n");
   return 0;
