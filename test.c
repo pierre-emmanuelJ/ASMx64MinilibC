@@ -5,7 +5,7 @@
 ** Login   <jacqui_p@epitech.eu>
 **
 ** Started on  Thu Mar  9 15:50:17 2017 Pierre-Emmanuel Jacquier
-** Last update Fri Mar 10 17:08:33 2017 Pierre-Emmanuel Jacquier
+** Last update Wed Mar 15 18:58:59 2017 Pierre-Emmanuel Jacquier
 */
 #include <stdio.h>
 #include <assert.h>
@@ -34,10 +34,29 @@ int main()
   ret = my_strcmp("ac", "dc");
   assert(ret > 0 ? 1 : ret < 0 ? -1 : 0 == strcmp("ac", "dc"));
 
-  char *momo = rindex("test", 's');
-  printf("%s\n", momo);
-  momo = my_rindex("test", 's');
-  printf("%s\n", momo);
+  char *s1 = rindex("test", 's');
+  char *s2 = my_rindex("test", 's');
+  assert(!strcmp(s1, s2));
+
+  s1 = rindex("test", 't');
+  s2 = my_rindex("test", 't');
+  assert(!strcmp(s1, s2));
+
+  s1 = rindex("test", 'f');
+  s2 = my_rindex("test", 'f');
+  assert(s1 == NULL && s2 == NULL);
+
+  s1 = rindex("hello", 0);
+  s2 = my_rindex("hello", 0);
+  assert(!strcmp(s1, s2));
+
+  s1 = rindex("", 0);
+  s2 = my_rindex("", 0);
+  assert(!strcmp(s1, s2));
+
+  s1 = rindex("", 'z');
+  s2 = my_rindex("", 'z');
+  assert(s1 == NULL && s2 == NULL);
 
   printf("***** TEST end *****\n");
   return 0;
