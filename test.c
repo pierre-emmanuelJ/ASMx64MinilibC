@@ -5,7 +5,7 @@
 ** Login   <jacqui_p@epitech.eu>
 **
 ** Started on  Thu Mar  9 15:50:17 2017 Pierre-Emmanuel Jacquier
-** Last update Wed Mar 15 18:58:59 2017 Pierre-Emmanuel Jacquier
+** Last update Wed Mar 15 19:30:23 2017 Pierre-Emmanuel Jacquier
 */
 #include <stdio.h>
 #include <assert.h>
@@ -14,6 +14,7 @@
 size_t my_strlen(const char *s);
 int my_strcmp(const char *s1, const char *s2);
 char *my_rindex(const char *s, int c);
+char *my_strchr(const char *s, int c);
 
 int main()
 {
@@ -56,6 +57,31 @@ int main()
 
   s1 = rindex("", 'z');
   s2 = my_rindex("", 'z');
+  assert(s1 == NULL && s2 == NULL);
+
+
+  s1 = strchr("test", 's');
+  s2 = my_strchr("test", 's');
+  assert(!strcmp(s1, s2));
+
+  s1 = strchr("test", 't');
+  s2 = my_strchr("test", 't');
+  assert(!strcmp(s1, s2));
+
+  s1 = strchr("test", 'f');
+  s2 = my_strchr("test", 'f');
+  assert(s1 == NULL && s2 == NULL);
+
+  s1 = strchr("hello", 0);
+  s2 = my_strchr("hello", 0);
+  assert(!strcmp(s1, s2));
+
+  s1 = strchr("", 0);
+  s2 = my_strchr("", 0);
+  assert(!strcmp(s1, s2));
+
+  s1 = strchr("", 'z');
+  s2 = my_strchr("", 'z');
   assert(s1 == NULL && s2 == NULL);
 
   printf("***** TEST end *****\n");
