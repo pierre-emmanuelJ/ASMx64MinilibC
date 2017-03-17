@@ -5,7 +5,7 @@
 ** Login   <jacqui_p@epitech.eu>
 **
 ** Started on  Thu Mar  9 15:50:17 2017 Pierre-Emmanuel Jacquier
-** Last update Fri Mar 17 14:51:22 2017 Pierre-Emmanuel Jacquier
+** Last update Fri Mar 17 15:13:36 2017 Pierre-Emmanuel Jacquier
 */
 #include <stdio.h>
 #include <assert.h>
@@ -18,6 +18,7 @@ char *my_rindex(const char *s, int c);
 char *my_strchr(const char *s, int c);
 void *my_memmove(void *dest, const void *src, size_t n);
 void *my_memset(void *s, int c, size_t n);
+char *my_strstr(const char *haystack, const char *needle);
 
 int main()
 {
