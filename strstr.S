@@ -2,26 +2,45 @@ BITS 64                             ; 64-bit mode
 
 SECTION .text                       ; Code section
 
-GLOBAL  strstr                   ; Export 'strlen'
+GLOBAL  strstr
+EXTERN  strlen
 
 strstr:
+        ;PUSHFQ
         PUSH RBP                    ; Prologue:
         MOV RBP, RSP                ; Stack frame setup
 
         XOR RAX, RAX
         XOR R8, R8                ; Initialize return value to 0
 
-        inc R8
-        mov [RDI], sil
 loop:
-        cmp R8, RDX          ; Move s1 byte in 8 bit subregister of RCX
+        cmp byte [RDI], 0x0
         jz end
 
-        mov [RDI + r8], sil
-        inc R8
+loop2:
+        cmp byte [RSI + R8], 0x0
+        jz find
+        cmp byte [RDI + R8], 0x0
+        jz end
+
+        MOV cl, byte [RDI + R8]
+        MOV dl, byte [RSI + R8]
+
+        cmp cl, dl
+        jnz endloop2
+
+        INC R8
+        jmp loop2
+
+endloop2:
+
+        XOR R8, R8
+        INC RDI
         jmp loop                    ; Loop jump to loop
 
+find:
+        MOV RAX, RDI
 end:
-        mov RAX, RDI
         LEAVE                       ; Epilogue
+        ;POPFQ
         RET                         ; Return
