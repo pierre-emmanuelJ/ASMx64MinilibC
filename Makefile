@@ -5,7 +5,7 @@
 ## Login   <jacqui_p@epitech.eu>
 ##
 ## Started on  Thu Mar  9 15:40:43 2017 Pierre-Emmanuel Jacquier
-## Last update Wed Mar 15 19:13:50 2017 Pierre-Emmanuel Jacquier
+## Last update Thu Mar 16 17:57:11 2017 Pierre-Emmanuel Jacquier
 ##
 
 RM		= rm -f
@@ -17,7 +17,9 @@ LD		= gcc
 SRCS		= strlen.S \
           strcmp.S \
 					rindex.S \
-					strchr.S
+					strchr.S \
+					memmove.S \
+					memset.S
 
 OBJS		= $(SRCS:.S=.o)
 

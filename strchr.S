@@ -14,8 +14,8 @@ my_strchr:
 loop:
         mov CH, byte [RDI]          ; Move s1 byte in 8 bit subregister of RCX
 
-        cmp  CH, byte 0x0            ; Compare byte of s1 to 0
-        jz  end_string                     ; Flag 'jump is 0' if prev condition is verify then goto end
+        cmp  CH, byte 0x0           ; Compare byte of s1 to 0
+        jz  end_string              ; Flag 'jump is 0' if prev condition is verify then goto end
 
         cmp CH, CL                  ; Compare s1 and s2 byte
         jz end
