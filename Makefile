@@ -5,14 +5,14 @@
 ## Login   <jacqui_p@epitech.eu>
 ##
 ## Started on  Thu Mar  9 15:40:43 2017 Pierre-Emmanuel Jacquier
-## Last update Fri Mar 17 15:12:17 2017 Pierre-Emmanuel Jacquier
+## Last update Fri Mar 17 16:39:19 2017 Pierre-Emmanuel Jacquier
 ##
 
 RM		= rm -f
 
 NASM		= nasm -f elf64 -g
 
-LD		= gcc
+LD		= ld
 
 SRCS		= strlen.S \
           strcmp.S \
