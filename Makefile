@@ -5,7 +5,7 @@
 ## Login   <jacqui_p@epitech.eu>
 ##
 ## Started on  Thu Mar  9 15:40:43 2017 Pierre-Emmanuel Jacquier
-## Last update Fri Mar 17 16:39:19 2017 Pierre-Emmanuel Jacquier
+## Last update Fri Mar 17 18:51:08 2017 Pierre-Emmanuel Jacquier
 ##
 
 RM		= rm -f
@@ -16,6 +16,7 @@ LD		= ld
 
 SRCS		= strlen.S \
           strcmp.S \
+					strncmp.S \
 					rindex.S \
 					strchr.S \
 					memmove.S \

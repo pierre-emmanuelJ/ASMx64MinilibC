@@ -2,7 +2,7 @@ BITS 64                             ; 64-bit mode
 
 SECTION .text                       ; Code section
 
-GLOBAL  strlen                   ; Export 'strlen'
+GLOBAL  strlen                      ; Export 'strlen'
 
 strlen:
         PUSH RBP                    ; Prologue:

@@ -5,7 +5,7 @@
 ** Login   <jacqui_p@epitech.eu>
 **
 ** Started on  Thu Mar  9 15:50:17 2017 Pierre-Emmanuel Jacquier
-** Last update Fri Mar 17 18:14:26 2017 Pierre-Emmanuel Jacquier
+** Last update Fri Mar 17 19:03:17 2017 Pierre-Emmanuel Jacquier
 */
 #include <stdio.h>
 #include <assert.h>
@@ -14,6 +14,7 @@
 
 size_t my_strlen(const char *s);
 int my_strcmp(const char *s1, const char *s2);
+int my_strncmp(const char *s1, const char *s2, size_t n);
 char *my_rindex(const char *s, int c);
 char *my_strchr(const char *s, int c);
 void *my_memmove(void *dest, const void *src, size_t n);
@@ -104,20 +105,30 @@ int main()
   // memset(s2, 0, 11);
   // assert(!strcmp(s1, s2));
 
-  char  *s1 = malloc(12);
+  //char  *s1 = malloc(12);
   // sprintf(s1, "hello test\n");
   // printf("%s\n", s1);
   // s1 = my_strstr(s1, "fdjsfkljs");
   // printf("%s\n", s1);
 
-  sprintf(s1, "hello test\n");
-  printf("%s\n", s1);
-  s1 = my_strstr(s1, "kldfjsldk");
-  printf("MOMO\n");
+  // sprintf(s1, "hello test\n");
+  // printf("%s\n", s1);
+  // s1 = my_strstr(s1, "kldfjsldk");
+  // printf("MOMO\n");
+  //
+  // if (s1 == NULL)
+  //   printf("%s\n", "NULL");
+  // //printf("%s\n", s1);
 
-  if (s1 == NULL)
-    printf("%s\n", "NULL");
-  //printf("%s\n", s1);
+
+  ret = my_strncmp("aaaaaaaaaaaaaaaa", "aaaadddddd", 3);
+  assert(ret > 0 ? 1 : ret < 0 ? -1 : 0 == strncmp("aaaaaaaaaaaaaaaa", "aaaadddddd", 3));
+  ret = my_strncmp("", "", 1);
+  assert(ret > 0 ? 1 : ret < 0 ? -1 : 0 == strncmp("", "", 1));
+  ret = my_strncmp("aaa", "aa", 1);
+  assert(ret > 0 ? 1 : ret < 0 ? -1 : 0 == strncmp("aaa", "aa", 2));
+  ret = my_strncmp("ac", "dc", 9);
+  assert(ret > 0 ? 1 : ret < 0 ? -1 : 0 == strncmp("ac", "dc", 9));
 
 
   printf("***** TEST end *****\n");
