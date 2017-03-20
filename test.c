@@ -5,7 +5,7 @@
 ** Login   <jacqui_p@epitech.eu>
 **
 ** Started on  Thu Mar  9 15:50:17 2017 Pierre-Emmanuel Jacquier
-** Last update Fri Mar 17 19:03:17 2017 Pierre-Emmanuel Jacquier
+** Last update Mon Mar 20 16:25:34 2017 Pierre-Emmanuel Jacquier
 */
 #include <stdio.h>
 #include <assert.h>
@@ -20,6 +20,7 @@ char *my_strchr(const char *s, int c);
 void *my_memmove(void *dest, const void *src, size_t n);
 void *my_memset(void *s, int c, size_t n);
 char *my_strstr(const char *haystack, const char *needle);
+char *my_strpbrk(const char *s, const char *accept);
 
 int main()
 {
@@ -130,6 +131,14 @@ int main()
   ret = my_strncmp("ac", "dc", 9);
   assert(ret > 0 ? 1 : ret < 0 ? -1 : 0 == strncmp("ac", "dc", 9));
 
+  char  *s1 = malloc(12);
+  sprintf(s1, "hello momo test\n");
+
+  char *res = strpbrk(s1, "m");
+
+  char *res2 = strpbrk(s1, "m");
+
+  assert(!strcmp(res, res2));
 
   printf("***** TEST end *****\n");
   return 0;
