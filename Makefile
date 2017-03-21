@@ -5,7 +5,7 @@
 ## Login   <jacqui_p@epitech.eu>
 ##
 ## Started on  Thu Mar  9 15:40:43 2017 Pierre-Emmanuel Jacquier
-## Last update Fri Mar 17 18:51:08 2017 Pierre-Emmanuel Jacquier
+## Last update Tue Mar 21 13:31:04 2017 Pierre-Emmanuel Jacquier
 ##
 
 RM		= rm -f
@@ -21,7 +21,9 @@ SRCS		= strlen.S \
 					strchr.S \
 					memmove.S \
 					memset.S \
-					strstr.S
+					strstr.S \
+					strcspn.S \
+					strpbrk.S
 
 OBJS		= $(SRCS:.S=.o)
 

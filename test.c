@@ -5,7 +5,7 @@
 ** Login   <jacqui_p@epitech.eu>
 **
 ** Started on  Thu Mar  9 15:50:17 2017 Pierre-Emmanuel Jacquier
-** Last update Mon Mar 20 16:25:34 2017 Pierre-Emmanuel Jacquier
+** Last update Tue Mar 21 13:31:23 2017 Pierre-Emmanuel Jacquier
 */
 #include <stdio.h>
 #include <assert.h>
@@ -21,6 +21,7 @@ void *my_memmove(void *dest, const void *src, size_t n);
 void *my_memset(void *s, int c, size_t n);
 char *my_strstr(const char *haystack, const char *needle);
 char *my_strpbrk(const char *s, const char *accept);
+size_t my_strcspn(const char *s, const char *reject);
 
 int main()
 {
@@ -136,9 +137,12 @@ int main()
 
   char *res = strpbrk(s1, "m");
 
-  char *res2 = strpbrk(s1, "m");
+  char *res2 = my_strpbrk(s1, "m");
 
   assert(!strcmp(res, res2));
+
+  printf("%lu\n", strcspn("hello", "l"));
+  printf("%lu\n", my_strcspn("hello", "l"));
 
   printf("***** TEST end *****\n");
   return 0;
