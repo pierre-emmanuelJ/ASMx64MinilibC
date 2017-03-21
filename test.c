@@ -5,7 +5,7 @@
 ** Login   <jacqui_p@epitech.eu>
 **
 ** Started on  Thu Mar  9 15:50:17 2017 Pierre-Emmanuel Jacquier
-** Last update Tue Mar 21 13:31:23 2017 Pierre-Emmanuel Jacquier
+** Last update Tue Mar 21 13:48:06 2017 Pierre-Emmanuel Jacquier
 */
 #include <stdio.h>
 #include <assert.h>
@@ -135,9 +135,9 @@ int main()
   char  *s1 = malloc(12);
   sprintf(s1, "hello momo test\n");
 
-  char *res = strpbrk(s1, "m");
+  char *res = strpbrk(s1, "om");
 
-  char *res2 = my_strpbrk(s1, "m");
+  char *res2 = my_strpbrk(s1, "om");
 
   assert(!strcmp(res, res2));
 
