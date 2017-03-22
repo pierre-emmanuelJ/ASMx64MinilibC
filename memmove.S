@@ -2,28 +2,23 @@ BITS 64                             ; 64-bit mode
 
 SECTION .text                       ; Code section
 
-GLOBAL  my_memmove                   ; Export 'strlen'
+GLOBAL  my_memmove
 
 my_memmove:
         PUSH RBP                    ; Prologue:
         MOV RBP, RSP                ; Stack frame setup
 
-        XOR RAX, RAX
-        XOR RDX, RDX                ; Initialize return value to 0
-        mov RCX, RSI                ; Put int charactere in RCX 64 bits
-
-        inc RDX
+        MOV RAX, RDI
+        XOR R8, R8
 loop:
-        cmp RDX, RBX
+        cmp R8, RDX
+        jz end
 
-        mov Cl, byte [RDI]          ; Move s1 byte in 8 bit subregister of RCX
-
-        inc RDI
-        inc RCX
-        inc RDX                     ; Increment s1
-        jmp loop                    ; Loop jump to loop
+        mov cl, byte [RSI + R8]
+        mov byte [RDI + R8], cl
+        INC R8
+        jmp loop
 
 end:
-        mov RAX, RSI
         LEAVE                       ; Epilogue
         RET                         ; Return

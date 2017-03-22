@@ -5,7 +5,7 @@
 ** Login   <jacqui_p@epitech.eu>
 **
 ** Started on  Thu Mar  9 15:50:17 2017 Pierre-Emmanuel Jacquier
-** Last update Wed Mar 22 16:32:57 2017 Pierre-Emmanuel Jacquier
+** Last update Wed Mar 22 17:12:09 2017 Pierre-Emmanuel Jacquier
 */
 #include <stdio.h>
 #include <assert.h>
@@ -160,21 +160,43 @@ int main()
 
   char  *st = malloc(12);
   sprintf(st, "hello world\n");
-
   char *res = strpbrk(st, "om");
-
   char *res2 = my_strpbrk(st, "om");
-
   assert(!strcmp(res, res2));
 
-  printf("%lu\n", strcspn("hello", "l"));
-  printf("%lu\n", my_strcspn("hello", "l"));
+
+  size_t test1 = strcspn(st, "l");
+  size_t test2 = my_strcspn(st, "l");
+  assert(test1 == test2);
+
+  test1 = strcspn(st, "k");
+  test2 = my_strcspn(st, "k");
+  assert(test1 == test2);
+
+  test1 = strcspn(st, "ol");
+  test2 = my_strcspn(st, "ol");
+  assert(test1 == test2);
+
+
+  test1 = strcspn(st, "");
+  test2 = my_strcspn(st, "");
+  assert(test1 == test2);
+
+
+  test1 = strcspn(st, "jfk");
+  test2 = my_strcspn(st, "jfk");
+  assert(test1 == test2);
+
+
+  test1 = strcspn(st, "d");
+  test2 = my_strcspn(st, "d");
+  assert(test1 == test2);
+
+
 
   st = (char *)memcpy(st, st + 5, 5);
   printf("%s\n", st);
-
   sprintf(st, "hello world\n");
-
   st = my_memcpy(st, st + 5, 5);
   printf("%s\n", st);
 
