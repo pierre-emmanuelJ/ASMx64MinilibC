@@ -5,7 +5,7 @@
 ** Login   <jacqui_p@epitech.eu>
 **
 ** Started on  Thu Mar  9 15:50:17 2017 Pierre-Emmanuel Jacquier
-** Last update Wed Mar 22 18:39:07 2017 Pierre-Emmanuel Jacquier
+** Last update Wed Mar 22 18:56:00 2017 Pierre-Emmanuel Jacquier
 */
 #include <stdio.h>
 #include <assert.h>
@@ -89,8 +89,8 @@ int main()
 
   s1 = malloc(50);
   s2 = malloc(50);
-  *s1 = 0;
-  *s1 = 0;
+  s1[0] = 0;
+  s2[0] = 0;
 
   s1 = rindex(s1, 0);
   s2 = my_rindex(s2, 0);
@@ -99,7 +99,7 @@ int main()
   s1 = malloc(50);
   s2 = malloc(50);
   *s1 = 0;
-  *s1 = 0;
+  *s2 = 0;
 
   s1 = rindex(s1, 'z');
   s2 = my_rindex(s2, 'z');
@@ -148,7 +148,7 @@ int main()
   s1 = malloc(50);
   s2 = malloc(50);
   *s1 = 0;
-  *s1 = 0;
+  *s2 = 0;
 
 
   s1 = strchr(s1, 0);
@@ -158,7 +158,7 @@ int main()
   s1 = malloc(50);
   s2 = malloc(50);
   *s1 = 0;
-  *s1 = 0;
+  *s2 = 0;
 
   s1 = strchr(s1, 'z');
   s2 = my_strchr(s2, 'z');
@@ -177,7 +177,7 @@ int main()
   s1 = malloc(50);
   s2 = malloc(50);
   *s1 = 0;
-  *s1 = 0;
+  *s2 = 0;
 
   assert(!strcmp(s1, s2));
   my_memset(s1, 0, 11);
@@ -234,7 +234,7 @@ int main()
   ret = my_strncmp("ac", "dc", 9);
   assert(ret > 0 ? 1 : ret < 0 ? -1 : 0 == strncmp("ac", "dc", 9));
 
-  char  *st = malloc(12);
+  char  *st = malloc(50);
   sprintf(st, "hello world\n");
   char *res = strpbrk(st, "om");
   char *res2 = my_strpbrk(st, "om");
@@ -269,12 +269,16 @@ int main()
   assert(test1 == test2);
 
 
+  s1 = malloc(50);
+  s2 = malloc(50);
+  sprintf(s1, "hello test");
+  sprintf(s2, "hello test");
 
-  st = (char *)memcpy(st, st + 5, 5);
-  printf("%s\n", st);
-  sprintf(st, "hello world\n");
-  st = my_memcpy(st, st + 5, 5);
-  printf("%s\n", st);
+  s1 = memcpy(s1, s1 + 5, 5);
+  s2 = my_memcpy(s2, s2 + 5, 5);
+
+  assert(!strcmp(s1, s2));
+
 
   printf("%s\n", "--------------ALL TEST PASSED--------------");
   printf("***** TEST end *****\n");

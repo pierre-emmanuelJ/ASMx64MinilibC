@@ -5,7 +5,7 @@
 ## Login   <jacqui_p@epitech.eu>
 ##
 ## Started on  Thu Mar  9 15:40:43 2017 Pierre-Emmanuel Jacquier
-## Last update Wed Mar 22 16:49:11 2017 Pierre-Emmanuel Jacquier
+## Last update Wed Mar 22 18:45:24 2017 Pierre-Emmanuel Jacquier
 ##
 
 RM		= rm -f
@@ -54,6 +54,12 @@ test:	$(OBJS)
 	@$(LD) $(LFLAGS) -o $(NAME) $(OBJS) $(CFLAGS)
 	@gcc test.c *.o -g
 	@LD_PRELOAD=./libasm.so ./a.out
+	make fclean && rm a.out
+
+vgtest:
+	@make re
+	@gcc test.c *.o -g
+	@valgrind ./a.out
 	make fclean && rm a.out
 
 .PHONY	: all clean fclean re
