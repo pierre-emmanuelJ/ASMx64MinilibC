@@ -5,7 +5,7 @@
 ** Login   <jacqui_p@epitech.eu>
 **
 ** Started on  Thu Mar  9 15:50:17 2017 Pierre-Emmanuel Jacquier
-** Last update Tue Mar 21 13:48:06 2017 Pierre-Emmanuel Jacquier
+** Last update Wed Mar 22 16:32:57 2017 Pierre-Emmanuel Jacquier
 */
 #include <stdio.h>
 #include <assert.h>
@@ -22,106 +22,132 @@ void *my_memset(void *s, int c, size_t n);
 char *my_strstr(const char *haystack, const char *needle);
 char *my_strpbrk(const char *s, const char *accept);
 size_t my_strcspn(const char *s, const char *reject);
+void *my_memcpy(void *dest, const void *src, size_t n);
 
 int main()
 {
   int ret;
 
   printf("***** TEST begin *****\n");
-  // assert(my_strlen("") == strlen(""));
-  // assert(my_strlen("hello") == strlen("hello"));
-  // assert(my_strlen("h") == strlen("h"));
-  // assert(my_strlen("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa") == strlen("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"));
-  //
-  // ret = my_strcmp("aaaaaaaaaaaaaaaa", "aaaadddddd");
-  // assert(ret > 0 ? 1 : ret < 0 ? -1 : 0 == strcmp("aaaaaaaaaaaaaaaa", "aaaadddddd"));
-  // ret = my_strcmp("", "");
-  // assert(ret > 0 ? 1 : ret < 0 ? -1 : 0 == strcmp("", ""));
-  // ret = my_strcmp("aaa", "aa");
-  // assert(ret > 0 ? 1 : ret < 0 ? -1 : 0 == strcmp("aaa", "aa"));
-  // ret = my_strcmp("ac", "dc");
-  // assert(ret > 0 ? 1 : ret < 0 ? -1 : 0 == strcmp("ac", "dc"));
-  //
-  // char *s1 = rindex("test", 's');
-  // char *s2 = my_rindex("test", 's');
-  // assert(!strcmp(s1, s2));
-  //
-  // s1 = rindex("test", 't');
-  // s2 = my_rindex("test", 't');
-  // assert(!strcmp(s1, s2));
-  //
-  // s1 = rindex("test", 'f');
-  // s2 = my_rindex("test", 'f');
-  // assert(s1 == NULL && s2 == NULL);
-  //
-  // s1 = rindex("hello", 0);
-  // s2 = my_rindex("hello", 0);
-  // assert(!strcmp(s1, s2));
-  //
-  // s1 = rindex("", 0);
-  // s2 = my_rindex("", 0);
-  // assert(!strcmp(s1, s2));
-  //
-  // s1 = rindex("", 'z');
-  // s2 = my_rindex("", 'z');
-  // assert(s1 == NULL && s2 == NULL);
-  //
-  //
-  // s1 = strchr("test", 's');
-  // s2 = my_strchr("test", 's');
-  // assert(!strcmp(s1, s2));
-  //
-  // s1 = strchr("test", 't');
-  // s2 = my_strchr("test", 't');
-  // assert(!strcmp(s1, s2));
-  //
-  // s1 = strchr("test", 'f');
-  // s2 = my_strchr("test", 'f');
-  // assert(s1 == NULL && s2 == NULL);
-  //
-  // s1 = strchr("hello", 0);
-  // s2 = my_strchr("hello", 0);
-  // assert(!strcmp(s1, s2));
-  //
-  // s1 = strchr("", 0);
-  // s2 = my_strchr("", 0);
-  // assert(!strcmp(s1, s2));
-  //
-  // s1 = strchr("", 'z');
-  // s2 = my_strchr("", 'z');
-  // assert(s1 == NULL && s2 == NULL);
-  //
-  // s1 = malloc(12);
-  // s2 = malloc(12);
-  // sprintf(s1, "hello test\n");
-  // sprintf(s2, "hello test\n");
-  // assert(!strcmp(s1, s2));
-  // my_memset(s1, 'Z', 11);
-  // memset(s2, 'Z', 11);
-  // assert(!strcmp(s1, s2));
-  //
-  // sprintf(s1, "");
-  // sprintf(s2, "");
-  // assert(!strcmp(s1, s2));
-  // my_memset(s1, 0, 11);
-  // memset(s2, 0, 11);
-  // assert(!strcmp(s1, s2));
+  assert(my_strlen("") == strlen(""));
+  assert(my_strlen("hello") == strlen("hello"));
+  assert(my_strlen("h") == strlen("h"));
+  assert(my_strlen("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa") == strlen("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"));
 
-  //char  *s1 = malloc(12);
-  // sprintf(s1, "hello test\n");
-  // printf("%s\n", s1);
-  // s1 = my_strstr(s1, "fdjsfkljs");
-  // printf("%s\n", s1);
+  ret = my_strcmp("aaaaaaaaaaaaaaaa", "aaaadddddd");
+  assert(ret > 0 ? 1 : ret < 0 ? -1 : 0 == strcmp("aaaaaaaaaaaaaaaa", "aaaadddddd"));
+  ret = my_strcmp("", "");
+  assert(ret > 0 ? 1 : ret < 0 ? -1 : 0 == strcmp("", ""));
+  ret = my_strcmp("aaa", "aa");
+  assert(ret > 0 ? 1 : ret < 0 ? -1 : 0 == strcmp("aaa", "aa"));
+  ret = my_strcmp("ac", "dc");
+  assert(ret > 0 ? 1 : ret < 0 ? -1 : 0 == strcmp("ac", "dc"));
 
-  // sprintf(s1, "hello test\n");
-  // printf("%s\n", s1);
-  // s1 = my_strstr(s1, "kldfjsldk");
-  // printf("MOMO\n");
-  //
-  // if (s1 == NULL)
-  //   printf("%s\n", "NULL");
-  // //printf("%s\n", s1);
+  char *s1 = rindex("test", 's');
+  char *s2 = my_rindex("test", 's');
+  assert(!strcmp(s1, s2));
 
+  s1 = rindex("test", 't');
+  s2 = my_rindex("test", 't');
+  assert(!strcmp(s1, s2));
+
+  s1 = rindex("test", 'f');
+  s2 = my_rindex("test", 'f');
+  assert(s1 == NULL && s2 == NULL);
+
+  s1 = rindex("hello", 0);
+  s2 = my_rindex("hello", 0);
+  assert(!strcmp(s1, s2));
+
+  s1 = rindex("", 0);
+  s2 = my_rindex("", 0);
+  assert(!strcmp(s1, s2));
+
+  s1 = rindex("", 'z');
+  s2 = my_rindex("", 'z');
+  assert(s1 == NULL && s2 == NULL);
+
+
+  s1 = strchr("test", 's');
+  s2 = my_strchr("test", 's');
+  assert(!strcmp(s1, s2));
+
+  s1 = strchr("test", 't');
+  s2 = my_strchr("test", 't');
+  assert(!strcmp(s1, s2));
+
+  s1 = strchr("test", 'f');
+  s2 = my_strchr("test", 'f');
+  assert(s1 == NULL && s2 == NULL);
+
+  s1 = strchr("hello", 0);
+  s2 = my_strchr("hello", 0);
+  assert(!strcmp(s1, s2));
+
+  s1 = strchr("", 0);
+  s2 = my_strchr("", 0);
+  assert(!strcmp(s1, s2));
+
+  s1 = strchr("", 'z');
+  s2 = my_strchr("", 'z');
+  assert(s1 == NULL && s2 == NULL);
+
+  s1 = malloc(12);
+  s2 = malloc(12);
+  sprintf(s1, "hello test\n");
+  sprintf(s2, "hello test\n");
+  assert(!strcmp(s1, s2));
+  my_memset(s1, 'Z', 11);
+  memset(s2, 'Z', 11);
+  assert(!strcmp(s1, s2));
+
+  sprintf(s1, "");
+  sprintf(s2, "");
+  assert(!strcmp(s1, s2));
+  my_memset(s1, 0, 11);
+  memset(s2, 0, 11);
+  assert(!strcmp(s1, s2));
+
+  s1 = malloc(12);
+  sprintf(s1, "hello test\n");
+  s1 = my_strstr(s1, "fdjsfkljs");
+  assert(s1 == NULL);
+
+  s1 = malloc(12);
+  sprintf(s1, "hello test\n");
+  s1 = my_strstr(s1, "k");
+  assert(s1 == NULL);
+
+
+  s1 = malloc(12);
+  sprintf(s1, "hello test");
+  s1 = my_strstr(s1, "tes");
+  assert(!strcmp(s1, "test"));
+
+  s1 = malloc(12);
+  sprintf(s1, "hello test");
+  s1 = my_strstr(s1, "llo");
+  assert(!strcmp(s1, "llo test"));
+
+  s1 = malloc(12);
+  sprintf(s1, "hello test");
+  s1 = my_strstr(s1, "h");
+  assert(!strcmp(s1, "hello test"));
+
+  s1 = malloc(12);
+  sprintf(s1, "hello test");
+  s1 = my_strstr(s1, "t");
+  assert(!strcmp(s1, "test"));
+
+  s1 = malloc(12);
+  sprintf(s1, "hello test");
+  s1 = my_strstr(s1, "he");
+  assert(!strcmp(s1, "hello test"));
+
+  s1 = malloc(12);
+  sprintf(s1, "hello test");
+  s1 = my_strstr(s1, "lo");
+  assert(!strcmp(s1, "lo test"));
 
   ret = my_strncmp("aaaaaaaaaaaaaaaa", "aaaadddddd", 3);
   assert(ret > 0 ? 1 : ret < 0 ? -1 : 0 == strncmp("aaaaaaaaaaaaaaaa", "aaaadddddd", 3));
@@ -132,17 +158,25 @@ int main()
   ret = my_strncmp("ac", "dc", 9);
   assert(ret > 0 ? 1 : ret < 0 ? -1 : 0 == strncmp("ac", "dc", 9));
 
-  char  *s1 = malloc(12);
-  sprintf(s1, "hello momo test\n");
+  char  *st = malloc(12);
+  sprintf(st, "hello world\n");
 
-  char *res = strpbrk(s1, "om");
+  char *res = strpbrk(st, "om");
 
-  char *res2 = my_strpbrk(s1, "om");
+  char *res2 = my_strpbrk(st, "om");
 
   assert(!strcmp(res, res2));
 
   printf("%lu\n", strcspn("hello", "l"));
   printf("%lu\n", my_strcspn("hello", "l"));
+
+  st = (char *)memcpy(st, st + 5, 5);
+  printf("%s\n", st);
+
+  sprintf(st, "hello world\n");
+
+  st = my_memcpy(st, st + 5, 5);
+  printf("%s\n", st);
 
   printf("***** TEST end *****\n");
   return 0;

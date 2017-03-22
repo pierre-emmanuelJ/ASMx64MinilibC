@@ -2,9 +2,9 @@ BITS 64                             ; 64-bit mode
 
 SECTION .text                       ; Code section
 
-GLOBAL  memmove                   ; Export 'strlen'
+GLOBAL  my_memmove                   ; Export 'strlen'
 
-memmove:
+my_memmove:
         PUSH RBP                    ; Prologue:
         MOV RBP, RSP                ; Stack frame setup
 

@@ -2,10 +2,9 @@ BITS 64                             ; 64-bit mode
 
 SECTION .text                       ; Code section
 
-GLOBAL  strstr
-EXTERN  strlen
+GLOBAL  my_strstr
 
-strstr:
+my_strstr:
         ;PUSHFQ
         PUSH RBP                    ; Prologue:
         MOV RBP, RSP                ; Stack frame setup
