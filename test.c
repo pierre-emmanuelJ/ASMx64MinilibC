@@ -5,7 +5,7 @@
 ** Login   <jacqui_p@epitech.eu>
 **
 ** Started on  Thu Mar  9 15:50:17 2017 Pierre-Emmanuel Jacquier
-** Last update Wed Mar 22 17:12:09 2017 Pierre-Emmanuel Jacquier
+** Last update Wed Mar 22 18:27:22 2017 Pierre-Emmanuel Jacquier
 */
 #include <stdio.h>
 #include <assert.h>
@@ -200,6 +200,7 @@ int main()
   st = my_memcpy(st, st + 5, 5);
   printf("%s\n", st);
 
+  printf("%s\n", "--------------ALL TEST PASSED--------------");
   printf("***** TEST end *****\n");
   return 0;
 }
