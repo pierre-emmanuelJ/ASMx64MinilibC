@@ -5,7 +5,7 @@
 ** Login   <jacqui_p@epitech.eu>
 **
 ** Started on  Thu Mar  9 15:50:17 2017 Pierre-Emmanuel Jacquier
-** Last update Wed Mar 22 18:27:22 2017 Pierre-Emmanuel Jacquier
+** Last update Wed Mar 22 18:39:07 2017 Pierre-Emmanuel Jacquier
 */
 #include <stdio.h>
 #include <assert.h>
@@ -43,53 +43,125 @@ int main()
   ret = my_strcmp("ac", "dc");
   assert(ret > 0 ? 1 : ret < 0 ? -1 : 0 == strcmp("ac", "dc"));
 
-  char *s1 = rindex("test", 's');
-  char *s2 = my_rindex("test", 's');
+
+  char *s1;
+  char *s2;
+
+  s1 = malloc(50);
+  s2 = malloc(50);
+
+  sprintf(s1, "test");
+  sprintf(s2, "test");
+
+  s1 = rindex(s1, 's');
+  s2 = my_rindex(s2, 's');
   assert(!strcmp(s1, s2));
 
-  s1 = rindex("test", 't');
-  s2 = my_rindex("test", 't');
+
+  s1 = malloc(50);
+  s2 = malloc(50);
+
+  sprintf(s1, "test");
+  sprintf(s2, "test");
+
+  s1 = rindex(s1, 't');
+  s2 = my_rindex(s2, 't');
   assert(!strcmp(s1, s2));
 
-  s1 = rindex("test", 'f');
-  s2 = my_rindex("test", 'f');
+  s1 = malloc(50);
+  s2 = malloc(50);
+  sprintf(s1, "test");
+  sprintf(s2, "test");
+
+
+  s1 = rindex(s1, 'f');
+  s2 = my_rindex(s2, 'f');
   assert(s1 == NULL && s2 == NULL);
 
-  s1 = rindex("hello", 0);
-  s2 = my_rindex("hello", 0);
+  s1 = malloc(50);
+  s2 = malloc(50);
+  sprintf(s1, "hello");
+  sprintf(s2, "hello");
+
+  s1 = rindex(s1, 0);
+  s2 = my_rindex(s2, 0);
   assert(!strcmp(s1, s2));
 
-  s1 = rindex("", 0);
-  s2 = my_rindex("", 0);
+  s1 = malloc(50);
+  s2 = malloc(50);
+  *s1 = 0;
+  *s1 = 0;
+
+  s1 = rindex(s1, 0);
+  s2 = my_rindex(s2, 0);
   assert(!strcmp(s1, s2));
 
-  s1 = rindex("", 'z');
-  s2 = my_rindex("", 'z');
+  s1 = malloc(50);
+  s2 = malloc(50);
+  *s1 = 0;
+  *s1 = 0;
+
+  s1 = rindex(s1, 'z');
+  s2 = my_rindex(s2, 'z');
   assert(s1 == NULL && s2 == NULL);
 
 
-  s1 = strchr("test", 's');
-  s2 = my_strchr("test", 's');
+  s1 = malloc(50);
+  s2 = malloc(50);
+  sprintf(s1, "test");
+  sprintf(s2, "test");
+
+  s1 = strchr(s1, 's');
+  s2 = my_strchr(s2, 's');
   assert(!strcmp(s1, s2));
 
-  s1 = strchr("test", 't');
-  s2 = my_strchr("test", 't');
+  s1 = malloc(50);
+  s2 = malloc(50);
+  sprintf(s1, "test");
+  sprintf(s2, "test");
+
+
+  s1 = strchr(s1, 't');
+  s2 = my_strchr(s2, 't');
   assert(!strcmp(s1, s2));
 
-  s1 = strchr("test", 'f');
-  s2 = my_strchr("test", 'f');
+  s1 = malloc(50);
+  s2 = malloc(50);
+  sprintf(s1, "test");
+  sprintf(s2, "test");
+
+
+  s1 = strchr(s1, 'f');
+  s2 = my_strchr(s2, 'f');
   assert(s1 == NULL && s2 == NULL);
 
-  s1 = strchr("hello", 0);
-  s2 = my_strchr("hello", 0);
+  s1 = malloc(50);
+  s2 = malloc(50);
+  sprintf(s1, "hello");
+  sprintf(s2, "hello");
+
+
+  s1 = strchr(s1, 0);
+  s2 = my_strchr(s2, 0);
   assert(!strcmp(s1, s2));
 
-  s1 = strchr("", 0);
-  s2 = my_strchr("", 0);
+  s1 = malloc(50);
+  s2 = malloc(50);
+  *s1 = 0;
+  *s1 = 0;
+
+
+  s1 = strchr(s1, 0);
+  s2 = my_strchr(s2, 0);
   assert(!strcmp(s1, s2));
 
-  s1 = strchr("", 'z');
-  s2 = my_strchr("", 'z');
+  s1 = malloc(50);
+  s2 = malloc(50);
+  *s1 = 0;
+  *s1 = 0;
+
+  s1 = strchr(s1, 'z');
+  s2 = my_strchr(s2, 'z');
   assert(s1 == NULL && s2 == NULL);
 
   s1 = malloc(12);
@@ -97,12 +169,16 @@ int main()
   sprintf(s1, "hello test\n");
   sprintf(s2, "hello test\n");
   assert(!strcmp(s1, s2));
+
   my_memset(s1, 'Z', 11);
   memset(s2, 'Z', 11);
   assert(!strcmp(s1, s2));
 
-  sprintf(s1, "");
-  sprintf(s2, "");
+  s1 = malloc(50);
+  s2 = malloc(50);
+  *s1 = 0;
+  *s1 = 0;
+
   assert(!strcmp(s1, s2));
   my_memset(s1, 0, 11);
   memset(s2, 0, 11);
