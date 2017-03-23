@@ -5,7 +5,7 @@
 ** Login   <jacqui_p@epitech.eu>
 **
 ** Started on  Thu Mar  9 15:50:17 2017 Pierre-Emmanuel Jacquier
-** Last update Thu Mar 23 15:40:42 2017 Pierre-Emmanuel Jacquier
+** Last update Thu Mar 23 16:00:17 2017 Pierre-Emmanuel Jacquier
 */
 
 #include <stdio.h>
@@ -227,6 +227,14 @@ int main()
   sprintf(s1, "hello test");
   s1 = my_strstr(s1, "lo");
   assert(!strcmp(s1, "lo test"));
+
+  s1 = malloc(12);
+  sprintf(s1, "hello test");
+  s1 = my_strstr(s1, "hello test");
+  if (s1 == NULL)
+    printf("NULL\n");
+  else
+    assert(!strcmp(s1, "hello test"));
 
   s1 = my_strstr(NULL, NULL);
   assert(s1 == NULL);

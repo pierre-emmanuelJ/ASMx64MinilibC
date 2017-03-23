@@ -22,11 +22,11 @@ loop:
         jz end
 
 loop2:
-        cmp byte [RDI + R8], 0x0
-        jz end
-
         cmp byte [RSI + R8], 0x0
         jz find
+
+        cmp byte [RDI + R8], 0x0
+        jz end
 
         MOV cl, byte [RDI + R8]
         MOV dl, byte [RSI + R8]
