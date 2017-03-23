@@ -17,6 +17,9 @@ strstr:
         cmp RSI, 0x0
         jz end
 
+        cmp byte [RDI], 0x0
+        jz check_end
+
 loop:
         cmp byte [RDI], 0x0
         jz end
@@ -42,6 +45,11 @@ endloop2:
         XOR R8, R8
         INC RDI
         jmp loop                    ; Loop jump to loop
+
+check_end:
+        cmp byte [RSI], 0x0
+        jz find
+        jmp end
 
 find:
         MOV RAX, RDI
