@@ -2,9 +2,9 @@ BITS 64                             ; 64-bit mode
 
 SECTION .text                       ; Code section
 
-GLOBAL  my_memcpy                   ; Export 'strlen'
+GLOBAL  memcpy                   ; Export 'strlen'
 
-my_memcpy:
+memcpy:
         PUSH RBP                    ; Prologue:
         MOV RBP, RSP                ; Stack frame setup
 

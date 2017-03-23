@@ -2,9 +2,9 @@ BITS 64                             ; 64-bit mode
 
 SECTION .text                       ; Code section
 
-GLOBAL  my_strchr                   ; Export 'strlen'
+GLOBAL  strchr                   ; Export 'strlen'
 
-my_strchr:
+strchr:
         PUSH RBP                    ; Prologue:
         MOV RBP, RSP                ; Stack frame setup
 

@@ -2,9 +2,9 @@ BITS 64                             ; 64-bit mode
 
 SECTION .text                       ; Code section
 
-GLOBAL  my_rindex                   ; Export 'strlen'
+GLOBAL  rindex                   ; Export 'strlen'
 
-my_rindex:
+rindex:
         PUSH RBP                    ; Prologue:
         MOV RBP, RSP                ; Stack frame setup
 
