@@ -12,15 +12,21 @@ strstr:
         XOR RAX, RAX
         XOR R8, R8                ; Initialize return value to 0
 
+        cmp RDI, 0x0
+        jz end
+        cmp RSI, 0x0
+        jz end
+
 loop:
         cmp byte [RDI], 0x0
         jz end
 
 loop2:
-        cmp byte [RSI + R8], 0x0
-        jz find
         cmp byte [RDI + R8], 0x0
         jz end
+
+        cmp byte [RSI + R8], 0x0
+        jz find
 
         MOV cl, byte [RDI + R8]
         MOV dl, byte [RSI + R8]
