@@ -2,7 +2,7 @@ BITS 64                             ; 64-bit mode
 
 SECTION .text                       ; Code section
 
-GLOBAL  strstr
+GLOBAL  strstr:function
 
 strstr:
         ;PUSHFQ

@@ -2,7 +2,7 @@ BITS 64                             ; 64-bit mode
 
 SECTION .text                       ; Code section
 
-GLOBAL  rindex                   ; Export 'strlen'
+GLOBAL  rindex:function                   ; Export 'strlen'
 
 rindex:
         PUSH RBP                    ; Prologue:

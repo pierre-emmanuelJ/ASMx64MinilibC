@@ -2,7 +2,7 @@ BITS 64                             ; 64-bit mode
 
 SECTION .text                       ; Code section
 
-GLOBAL  strncmp                   ; Export 'strlen'
+GLOBAL  strncmp:function                   ; Export 'strlen'
 
 strncmp:
         PUSH RBP                    ; Prologue:
@@ -15,7 +15,7 @@ strncmp:
 loop:
         cmp R8, RDX
         jz end
-        
+
         mov AL, byte[RDI]           ; Move s1 byte in 8 bit subregister of RAX
         mov CL, byte[RSI]           ; Move s2 byte in 8 bit subregister of RCX
 

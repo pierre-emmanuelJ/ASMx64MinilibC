@@ -2,7 +2,7 @@ BITS 64                             ; 64-bit mode
 
 SECTION .text                       ; Code section
 
-GLOBAL  memcpy                   ; Export 'strlen'
+GLOBAL  memcpy:function                   ; Export 'strlen'
 
 memcpy:
         PUSH RBP                    ; Prologue:
