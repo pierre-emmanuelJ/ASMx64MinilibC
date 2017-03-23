@@ -10,14 +10,14 @@ strncmp:
 
         XOR RAX, RAX                ;
         XOR RCX, RCX
-        XOR R8, R8                ;
+        XOR R8, R8                  ;
 
 loop:
-        mov AL, byte[RDI]           ; Move s1 byte in 8 bit subregister of RAX
-        mov CL, byte[RSI]           ; Move s2 byte in 8 bit subregister of RCX
-
         cmp R8, RDX
         jz end
+        
+        mov AL, byte[RDI]           ; Move s1 byte in 8 bit subregister of RAX
+        mov CL, byte[RSI]           ; Move s2 byte in 8 bit subregister of RCX
 
         cmp AL, 0x0                 ; Compare byte of s1 to 0
         jz  end                     ; Flag 'jump is 0' if prev condition is verify then goto end
