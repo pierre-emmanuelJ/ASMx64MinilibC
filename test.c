@@ -24,6 +24,7 @@ char *my_strstr(const char *haystack, const char *needle);
 char *my_strpbrk(const char *s, const char *accept);
 size_t my_strcspn(const char *s, const char *reject);
 void *my_memcpy(void *dest, const void *src, size_t n);
+void *my_memmove(void *dest, const void *src, size_t n);
 
 int main()
 {
@@ -185,7 +186,8 @@ int main()
   // memset(s2, 0, 11);
   // assert(!strcmp(s1, s2));
 
-  char *s1;
+  /*
+char *s1;
 
   s1 = malloc(12);
   sprintf(s1, "hello test");
@@ -258,6 +260,11 @@ int main()
 
   s1 = my_strstr(NULL, NULL);
   assert(s1 == NULL);
+	*/
+
+
+
+  
 
 
   // ret = my_strncmp("aaaaaaaaaaaaaaaa", "aaaadddddd", 3);
@@ -313,6 +320,37 @@ int main()
   // s2 = my_memcpy(s2, s2 + 5, 5);
   //
   // assert(!strcmp(s1, s2));
+
+  char *test1;
+  char *test2;
+  char *out1;
+  char *out2;
+  
+  test1 = malloc(50);
+  test2 = malloc(50);
+  out1 = malloc(50);
+  out2 = malloc(50);
+  sprintf(out2, "gros con");
+  sprintf(out1, "gros con");
+  sprintf(test1, "hello world");
+  sprintf(test2, "hello world");
+
+  printf("%s\n", my_memmove(out1, test1, 5));
+  printf("%s\n", memmove(out2, test2, 5));
+    
+  assert(!strcmp(my_memmove(out1, test1, 5), memmove(out2, test2, 5)));
+
+
+  test1 = malloc(50);
+  test2 = malloc(50);
+
+  sprintf(test1, "hello world");
+  sprintf(test2, "hello world");
+
+  printf("%s\n", memmove(test2, test2 + 2, 5));
+  printf("%s\n", my_memmove(test1, test1 + 2, 5));
+    
+  assert(!strcmp(my_memmove(out1, test1, 5), memmove(out2, test2, 5)));
 
 
   printf("%s\n", "--------------ALL TEST PASSED--------------");
