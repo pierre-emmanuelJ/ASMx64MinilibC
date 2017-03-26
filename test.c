@@ -334,9 +334,6 @@ char *s1;
   sprintf(out1, "gros con");
   sprintf(test1, "hello world");
   sprintf(test2, "hello world");
-
-  printf("%s\n", my_memmove(out1, test1, 5));
-  printf("%s\n", memmove(out2, test2, 5));
     
   assert(!strcmp(my_memmove(out1, test1, 5), memmove(out2, test2, 5)));
 
@@ -346,12 +343,16 @@ char *s1;
 
   sprintf(test1, "hello world");
   sprintf(test2, "hello world");
-
-  printf("%s\n", memmove(test2, test2 + 2, 5));
-  printf("%s\n", my_memmove(test1, test1 + 2, 5));
     
-  assert(!strcmp(my_memmove(out1, test1, 5), memmove(out2, test2, 5)));
+  assert(!strcmp(my_memmove(test1, test1 + 2, 5), memmove(test2, test2 + 2, 5)));
 
+  test1 = malloc(50);
+  test2 = malloc(50);
+
+  sprintf(test1, "hello world");
+  sprintf(test2, "hello world");
+    
+  assert(!strcmp(my_memmove(test1 + 2, test1, 5), memmove(test2 + 2, test2, 5)));
 
   printf("%s\n", "--------------ALL TEST PASSED--------------");
   printf("***** TEST end *****\n");
