@@ -2,17 +2,17 @@ BITS 64                             ; 64-bit mode
 
 SECTION .text                       ; Code section
 
-GLOBAL  memset:function                  ; Export 'strlen'
+GLOBAL  memset:function             ; Export 'memset'
 
 memset:
         PUSH RBP                    ; Prologue:
         MOV RBP, RSP                ; Stack frame setup
 
         XOR RAX, RAX
-        XOR R8, R8                ; Initialize return value to 0
+        XOR R8, R8
 
 loop:
-        cmp R8, RDX          ; Move s1 byte in 8 bit subregister of RCX
+        cmp R8, RDX
         jz end
 
         mov [RDI + r8], sil
